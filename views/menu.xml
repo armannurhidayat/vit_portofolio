@@ -1,7 +1,7 @@
 <odoo>
 	<data>
 		
-		<record id="action_skills_list" model="ir.actions.act_window">
+		<record id="action_portofolio_skills_list" model="ir.actions.act_window">
             <field name="name">Skills</field>
             <field name="res_model">portofolio.skills</field>
             <field name="view_mode">tree,form</field>
@@ -11,15 +11,36 @@
             </field>
         </record>
 
-        <menuitem id="skills_0"
-        name="Skills"
+        <record id="action_portofolio_works_list" model="ir.actions.act_window">
+            <field name="name">Works</field>
+            <field name="res_model">portofolio.works</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Works </p>
+                <p>klik tombol create untuk membuat Works baru</p>
+            </field>
+        </record>
+
+        <menuitem id="portofolio_0"
+        name="Portofolio"
         sequence="20"/>
 
-        <menuitem id="skills_1"
-        name="Skills"
-        parent="skills_0"
-        action="action_skills_list"
+        <menuitem id="portofolio_1"
+        name="Portofolio"
+        parent="portofolio_0"
         sequence="20"/>
+
+        <menuitem id="menu_portofolio_skills"
+        name="Skills"
+        parent="portofolio_0"
+        action="action_portofolio_skills_list"
+        sequence="20"/>
+
+        <menuitem id="menu_academic_course"
+        name="Works"
+        parent="portofolio_0"
+        action="action_portofolio_works_list"
+        sequence="30"/>
         
 	</data>
 </odoo>
