@@ -1,0 +1,25 @@
+<odoo>
+	<data>
+		
+		<record id="action_skills_list" model="ir.actions.act_window">
+            <field name="name">Skills</field>
+            <field name="res_model">portofolio.skills</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Skills </p>
+                <p>klik tombol create untuk membuat Skills baru</p>
+            </field>
+        </record>
+
+        <menuitem id="skills_0"
+        name="Skills"
+        sequence="20"/>
+
+        <menuitem id="skills_1"
+        name="Skills"
+        parent="skills_0"
+        action="action_skills_list"
+        sequence="20"/>
+        
+	</data>
+</odoo>
