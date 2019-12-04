@@ -110,7 +110,7 @@
 												<div class="timeline-panel">
 													<div class="timeline-heading">
 														<h3 class="timeline-title"><span t-field="experience.name" /></h3>
-														<span class="company">Company Name - 2016 - Current</span>
+														<span class="company"><span t-field="experience.start" /> Sampai <span t-field="experience.end" /></span>
 													</div>
 													<div class="timeline-body">
 														<p><span t-field="experience.description"/></p>
@@ -136,7 +136,7 @@
 										<div class="col-md-4 text-center" t-foreach="employee_id.works_ids" t-as="work">
 											<div class="feature-left">
 												<span class="icon">
-													<i class="icon-paintbrush"></i>
+													<a target="_blank" t-att-href="work.link"><i class="icon-paintbrush"></i></a>
 												</span>
 												<div class="feature-copy">
 													<h3><span t-field="work.name"/></h3>
