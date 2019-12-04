@@ -77,17 +77,81 @@
         </field>
     </record>
 
+    <!-- Tree Experience -->
+    <record id="view_portofolio_experience_tree" model="ir.ui.view">
+        <field name="name">portofolio.experience.tree</field>
+        <field name="model">portofolio.experience</field>
+        <field name="type">tree</field>
+        <field name="priority" eval="8"/>
 
-    <!-- Inherit ke Employe -->
+        <field name="arch" type="xml">
+            <tree string="Experience">
+                <field name="name"/>
+                <field name="start" />
+                <field name="end" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form Experience -->
+    <record id="view_portofolio_experience_form" model="ir.ui.view">
+        <field name="name">portofolio.experience.form</field>
+        <field name="model">portofolio.experience</field>
+        <field name="type">form</field>
+        <field name="priority" eval="8"/>
+
+        <field name="arch" type="xml">
+            <form string="Experience Form">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="start"/>
+                            <field name="end"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Inherit Skills ke Employe -->
     <record model="ir.ui.view" id="view_name_skills_form">
         <field name="name">view_name_skills_form.form</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
 
         <field name="arch" type="xml">
-            <field name="work_phone" position="after">
-                <field name="skills_ids"/>
-            </field>
+            <notebook position="inside">
+                <page string="Skills">
+                    <group>
+                        <group>
+                            <field name="skills_ids"/>
+                        </group>
+                    </group>
+                </page>
+
+                <page string="Works">
+                    <group>
+                        <group>
+                            <field name="works_ids"/>
+                        </group>
+                    </group>
+                </page>
+
+                <page string="Experience">
+                    <group>
+                        <group>
+                            <field name="experience_ids"/>
+                        </group>
+                    </group>
+                </page>
+            </notebook>
         </field>
     </record>
     

@@ -7,7 +7,7 @@ class PortofolioSkills(models.Model):
 
 	name = fields.Char(string='Nama', required=True)
 	score = fields.Integer(string='Score', required=True)
-	skills_id = fields.Many2one(comodel_name="hr.employee", string="Nama", required=False)
+	skills_id = fields.Many2one(comodel_name="hr.employee", string="Nama")
 
 
 class PortofolioWorks(models.Model):
@@ -16,6 +16,17 @@ class PortofolioWorks(models.Model):
 	name = fields.Char(string='Nama', required=True)
 	link = fields.Char(string='Link', required=True)
 	description = fields.Text(string='Description')
+	works_id = fields.Many2one(comodel_name="hr.employee", string='Nama')
+
+
+class PortofolioExperience(models.Model):
+    _name = 'portofolio.experience'
+
+    name = fields.Char(string='Nama', required=True)
+    start = fields.Date(string='Year Start')
+    end = fields.Date(string='Year End')
+    description = fields.Text(string='Description')
+    experiences_id = fields.Many2one(comodel_name="hr.employee", string='Nama')
 
 
 class Employees(models.Model):
@@ -26,4 +37,16 @@ class Employees(models.Model):
 		'portofolio.skills',
 		'skills_id',
 		string='Skills',
+	)
+
+	works_ids = fields.One2many(
+	    'portofolio.works',
+	    'works_id',
+	    string='Works',
+	)
+
+	experience_ids = fields.One2many(
+	    'portofolio.experience',
+	    'experiences_id',
+	    string='Experience',
 	)

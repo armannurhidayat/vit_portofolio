@@ -4,13 +4,9 @@ from odoo.http import request
 
 class VitPortofolio(http.Controller):
 
-	# (hr.employee.id)
-	@http.route('/portofolio/', auth='public')
-	def index(self, **kw):
-		employees	= request.env['hr.employee'].search([])
-		skills 		= request.env['portofolio.skills'].search([])
-
+	# <model("hr.employee"):employee_id> = parameter id employee
+	@http.route("/portofolio/<model('hr.employee'):employee_id>", auth='public')
+	def index(self, employee_id, **kw): # hasil parsing di masukan ke fungsi
 		return request.render("vit_portofolio.index", {
-			'karyawan'	: employees,
-			'skills' 	: skills,
+			'employee_id'	: employee_id,
 		})
