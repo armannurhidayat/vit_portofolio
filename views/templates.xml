@@ -12,8 +12,6 @@
 					<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 					<meta name="author" content="freehtml5.co" />
 
-					<!-- <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet" /> -->
-					<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" /> -->
 					<link href="/vit_portofolio/static/src/fonts/google/kaushan_script.css" rel="stylesheet" />
 					<link href="/vit_portofolio/static/src/fonts/google/space_mono.css" rel="stylesheet" />
 					
@@ -162,17 +160,17 @@
 
 								<div class="row row-pb-md" >
 									<div class="col-md-3 col-sm-6 col-xs-12 text-center" t-foreach="employee_id.skills_ids" t-as="skill">
-										<div class="chart" t-att-data-percent="skill.score"><span t-field="skill.score" /><strong t-field="skill.name"/></div>
+										<div class="chart" t-att-data-percent="skill.score"><span><strong t-field="skill.name" /><span t-field="skill.score" /></span></div>
 									</div>
 								</div>
 								
 								<div class="row">
 									<div class="col-md-6">
 										<div class="progress-wrap" t-foreach="employee_id.skills_ids" t-as="skill">
-											<h3><span class="name-left" t-field="skill.name" /><span class="value-right" t-field="skill.score">95%</span></h3>
+											<h3><span class="name-left" t-field="skill.name" /><span class="value-right" t-field="skill.score" /></h3>
 											<div class="progress">
 											  <div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-											  aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+											  t-att-aria-valuenow="skill.score" aria-valuemin="0" aria-valuemax="100" t-attf-style="width:{{skill.score}}% ">
 											  </div>
 											</div>
 										</div>

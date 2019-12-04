@@ -119,6 +119,42 @@
         </field>
     </record>
 
+    <!-- Tree Social Media -->
+    <record id="view_portofolio_social_tree" model="ir.ui.view">
+        <field name="name">portofolio.social.tree</field>
+        <field name="model">portofolio.social</field>
+        <field name="type">tree</field>
+        <field name="priority" eval="8"/>
+
+        <field name="arch" type="xml">
+            <tree string="Social Media">
+                <field name="name"/>
+                <field name="link" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form Social Media -->
+    <record id="view_portofolio_social_form" model="ir.ui.view">
+        <field name="name">portofolio.social.form</field>
+        <field name="model">portofolio.social</field>
+        <field name="type">form</field>
+        <field name="priority" eval="8"/>
+
+        <field name="arch" type="xml">
+            <form string="Social Form">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="link" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
 
     <!-- Inherit Skills ke Employe -->
     <record model="ir.ui.view" id="view_name_skills_form">
@@ -148,6 +184,14 @@
                     <group>
                         <group>
                             <field name="experience_ids"/>
+                        </group>
+                    </group>
+                </page>
+
+                <page string="Social Media">
+                    <group>
+                        <group>
+                            <field name="social_ids"/>
                         </group>
                     </group>
                 </page>

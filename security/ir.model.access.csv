@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 skills_manager,skills_manager,model_portofolio_skills,group_manager,1,1,1,1
 works_manager,works_manager,model_portofolio_works,group_manager,1,1,1,1
 experience_manager,experience_manager,model_portofolio_experience,group_manager,1,1,1,1
+social_manager,social_manager,model_portofolio_social,group_manager,1,1,1,1
