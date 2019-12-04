@@ -28,7 +28,7 @@
 					<div id="page">
 
 						<!-- HEADER -->
-						<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image:url(images/cover_bg_3.jpg);" data-stellar-background-ratio="0.5">
+						<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" t-attf-style="background-image:url(/vit_portofolio/static/src/images/cover_bg_3.jpg);" data-stellar-background-ratio="0.5">
 							<div class="overlay"></div>
 							<div class="container">
 								<div class="row">
