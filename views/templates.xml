@@ -37,16 +37,16 @@
 											<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
 												<!-- Menampilkan gambar dinamis -->
 												<!-- <img class="profile-thumb" t-att-src="'/vit_portofolio/static/src/images/user.jpg'" /> -->
+
 												<!-- Menampilkan gambar statis -->
 												<img class="profile-thumb" t-if="employee_id.image" t-attf-src="data:image/*;base64,{{employee_id.image}}" />
 												<h1><span t-field="employee_id.name" /></h1>
 												<h3><span t-field="employee_id.job_id" /></h3>
 												<p>
 													<ul class="fh5co-social-icons">
-														<li><a target="_blank" href="#"><i class="icon-twitter2"></i></a></li>
-														<li><a target="_blank" href="https://www.instagram.com/aarmanh_"><i class="icon-instagram2"></i></a></li>
-														<li><a target="_blank" href="https://www.linkedin.com/in/armannurhidayat/"><i class="icon-linkedin2"></i></a></li>
-														<li><a target="_blank" href="https://github.com/armannurhidayat"><i class="icon-github2"></i></a></li>
+														<li t-foreach="employee_id.social_ids" t-as="social">
+															<a target="_blank" t-att-href="social.link"><i t-attf-class="icon-{{social.name}}2"></i></a>
+														</li>
 													</ul>
 												</p>
 											</div>
@@ -79,11 +79,10 @@
 										<p>There live the blind texts far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in bookmarksgrove there live the blind texts far from the countries.</p>
 										<p>Far far away, behind the word mountains, Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci there live the blind texts from the countries Vokalia and Consonantia, there live the blind texts. Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci.</p>
 										<p>
-											<ul class="fh5co-social-icons">
-												<li><a target="_blank" href="#"><i class="icon-twitter2"></i></a></li>
-												<li><a target="_blank" href="https://www.instagram.com/aarmanh_"><i class="icon-instagram2"></i></a></li>
-												<li><a target="_blank" href="https://www.linkedin.com/in/armannurhidayat/"><i class="icon-linkedin2"></i></a></li>
-												<li><a target="_blank" href="https://github.com/armannurhidayat"><i class="icon-github2"></i></a></li>
+											<ul class="fh5co-social-icons" >
+												<li t-foreach="employee_id.social_ids" t-as="social">
+													<a target="_blank" t-att-href="social.link"><i t-attf-class="icon-{{social.name}}2"></i></a>
+												</li>
 											</ul>
 										</p>
 									</div>
