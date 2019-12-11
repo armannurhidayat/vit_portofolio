@@ -31,7 +31,7 @@
 						    <h1>I am <span t-field="employee_id.name" /></h1>
 						    <p><span t-field="employee_id.job_id" /></p>
 						    <p>
-						      <a t-foreach="employee_id.social_ids" t-as="social" class="fa-icon fa-icon-2x" t-att-href="social.link" >
+						      <a target="_blank" t-foreach="employee_id.social_ids" t-as="social" class="fa-icon fa-icon-2x" t-att-href="social.link" >
 						        <i t-attf-class="fa fa-{{social.name}}"></i>
 						      </a>
 						    </p>
