@@ -3,13 +3,14 @@
     'name': "vit_portofolio",
 
     'summary': """
-        https://github.com/armannurhidayat""",
+        Website Portofolio
+    """,
 
     'description': """
         https://github.com/armannurhidayat
     """,
 
-    'author': "Arman Nur Hidayat",
+    'author': "Arman Nur Hidayat <vitraining>",
     'website': "https://github.com/armannurhidayat",
 
     # Categories can be used to filter modules in modules listing

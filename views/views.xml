@@ -46,6 +46,7 @@
 
         <field name="arch" type="xml">
             <tree string="Works">
+                <field name="image" widget="image" class="oe_avatar"/>
                 <field name="name"/>
                 <field name="link" />
                 <field name="description" />
@@ -67,6 +68,7 @@
                         <group>
                             <field name="name"/>
                             <field name="link"/>
+                            <field name="image" widget="image" class="oe_avatar"/>
                         </group>
                     </group>
                     <group>
@@ -165,35 +167,23 @@
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page string="Skills">
-                    <group>
-                        <group>
-                            <field name="skills_ids"/>
-                        </group>
-                    </group>
+                    <field name="skills_ids"/>
                 </page>
 
                 <page string="Works">
-                    <group>
-                        <group>
-                            <field name="works_ids"/>
-                        </group>
-                    </group>
+                    <field name="works_ids"/>
                 </page>
 
                 <page string="Experience">
-                    <group>
-                        <group>
-                            <field name="experience_ids"/>
-                        </group>
-                    </group>
+                    <field name="experience_ids"/>
                 </page>
 
                 <page string="Social Media">
-                    <group>
-                        <group>
-                            <field name="social_ids"/>
-                        </group>
-                    </group>
+                    <field name="social_ids"/>
+                </page>
+
+                <page string="Profile">
+                    <field name="profile" widget="html"/>
                 </page>
             </notebook>
         </field>

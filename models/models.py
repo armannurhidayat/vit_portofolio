@@ -14,6 +14,7 @@ class PortofolioWorks(models.Model):
 	_name = 'portofolio.works'
 
 	name = fields.Char(string='Nama', required=True)
+	image = fields.Binary(string='Gambar')
 	link = fields.Char(string='Link', required=True)
 	description = fields.Text(string='Description')
 	works_id = fields.Many2one(comodel_name="hr.employee", string='Nama')
@@ -25,8 +26,13 @@ class PortofolioExperience(models.Model):
 	name = fields.Char(string='Nama', required=True)
 	start = fields.Date(string='Year Start')
 	end = fields.Date(string='Year End')
+	year = fields.Char(string='Year', compute='get_year')
 	description = fields.Text(string='Description')
 	experiences_id = fields.Many2one(comodel_name="hr.employee", string='Nama')
+
+	def get_year(self):
+		for x in self:
+			x.year = str(x.start.year) + ' / ' + str(x.end.year)
 
 
 class PortofolioSocial(models.Model):
@@ -40,6 +46,8 @@ class PortofolioSocial(models.Model):
 class Employees(models.Model):
 	_name = 'hr.employee'
 	_inherit = 'hr.employee'
+
+	profile = fields.Text(string='Profile')
 
 	skills_ids = fields.One2many(
 		'portofolio.skills',
