@@ -24,14 +24,10 @@
 
     # always loaded
     'data': [
-        # 'views/menu.xml',
         'views/views.xml',
+        'views/home.xml',
         'views/templates.xml',
         'data/group.xml',
         'security/ir.model.access.csv',
-    ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
     ],
 }

@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 
+
 class PortofolioSkills(models.Model):
 	_name = 'portofolio.skills'
 

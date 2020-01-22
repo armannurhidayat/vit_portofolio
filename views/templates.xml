@@ -1,7 +1,7 @@
 <odoo>
 	<data>
 
-		<template id="index">
+		<template id="portofolio">
 			<html>
 				<head>
 					<meta charset="UTF-8" />
@@ -63,7 +63,9 @@
 								<h2 class="text-center text-warning">Projects</h2>
 									<div class="row">
 										<div class="col-md-4" t-foreach="employee_id.works_ids" t-as="work">
-										   <img t-attf-src="data:image/*;base64,{{work.image}}" class="img-responsive" />
+										   <a target="_blank" t-attf-href="{{work.link}}">
+											   <img t-attf-src="data:image/*;base64,{{work.image}}" class="img-responsive" />
+										   </a>
 										   <h3 class="h5"><span t-field="work.name" /></h3>
 										   <p><span t-field="work.description"/></p>
 										</div>
@@ -110,7 +112,7 @@
 					               <input type="text" class="form-control" id="subject" placeholder="Subject" />
 					             </div>
 					             <div class="form-group">
-					               <textarea class="form-control" rows="5" placeholder="Enter your message"></textarea>
+					               <textarea style="resize: vertical" class="form-control" rows="5" placeholder="Enter your message"></textarea>
 					             </div>
 					             <div class="form-group">
 					               <button type="submit" class=" btn btn-primary">Send message</button>
