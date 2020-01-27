@@ -4,6 +4,9 @@
 		<template id="portofolio">
 			<html>
 				<head>
+					<title t-field="employee_id.name" />
+					
+					<!-- Meta -->
 					<meta charset="UTF-8" />
 					<meta content="IE=edge" http-equiv="X-UA-Compatible" />
 					<meta content="width=device-width,initial-scale=1" name="viewport" />
@@ -11,128 +14,197 @@
 					<meta name="google" content="notranslate" />
 					<meta content="Arman Nur Hidayat" name="author" />
 					<meta name="msapplication-tap-highlight" content="no" />
-					  
-					<title t-field="employee_id.name" />
-					<link rel="apple-touch-icon" sizes="180x180" href="/vit_portofolio/static/energy/assets/apple-icon-180x180.png" />
-					<link href="/vit_portofolio/static/energy/assets/favicon.ico" rel="icon" />
-					<link href="/vit_portofolio/static/energy/main.d8e0d294.css" rel="stylesheet" />
-
-					<!-- Custom My CSS -->
-					<link rel="stylesheet" href="/vit_portofolio/static/energy/custom.css" />
+					
+					<!-- Google Font -->
+					<link href="/vit_portofolio/static/pillar/css/font.css" rel="stylesheet" />
+					
+					<!-- FontAwesome JS-->
+					<script src="/vit_portofolio/static/pillar/js/fontawesome.js" />
+					   
+					<!-- Theme CSS -->  
+					<link id="theme-style" rel="stylesheet" href="/vit_portofolio/static/pillar/css/pillar-3.css" />
 				</head>
 
-
-				<body class="">
-					<div class="background-color-layer" t-attf-style="background-image: url(data:image/*;base64,{{employee_id.image}})"></div>
-
-					<main class="content-wrapper">
-						<header class="white-text-container section-container">
-						  <div class="text-center">
-						    <h1>I am <span t-field="employee_id.name" /></h1>
-						    <p><span t-field="employee_id.job_id" /></p>
-						    <p>
-						      <a target="_blank" t-foreach="employee_id.social_ids" t-as="social" class="fa-icon fa-icon-2x" t-att-href="social.link" >
-						        <i t-attf-class="fa fa-{{social.name}}"></i>
-						      </a>
-						    </p>
-						  </div>
-						</header>
-
-						<div class="container">
-						  <div class="row">
-						    <div class="col-xs-12">
-
-					        <!-- About me -->
-					        <div class="card">
-					        	<div class="card-block">
-					        	<h2 class="text-center text-warning">About me</h2>
-									<div class="row">
-							            <div class="col-md-4">
-							               <p><img t-attf-src="data:image/*;base64,{{employee_id.image}}" class="img-responsive" /></p>
-							            </div>
-							            <div class="col-md-8">
-								            <p><span t-raw="employee_id.profile" /></p>
-							            </div>
-									</div>
-					        	</div>
-					        </div>
-
-							<!-- Projects -->
-							<div class="card">
-								<div class="card-block">
-								<h2 class="text-center text-warning">Projects</h2>
-									<div class="row">
-										<div class="col-md-4" t-foreach="employee_id.works_ids" t-as="work">
-										   <a target="_blank" t-attf-href="{{work.link}}">
-											   <img t-attf-src="data:image/*;base64,{{work.image}}" class="img-responsive" />
-										   </a>
-										   <h3 class="h5"><span t-field="work.name" /></h3>
-										   <p><span t-field="work.description"/></p>
+				<body>
+					<article class="resume-wrapper text-center position-relative">
+						<div class="resume-wrapper-inner mx-auto text-left bg-white shadow-lg">
+							<header class="resume-header pt-4 pt-md-0">
+								<div class="media flex-column flex-md-row">
+									<img class="mr-3 img-fluid picture mx-auto" t-attf-src="data:image/*;base64,{{employee_id.image}}" />
+									<div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
+										<div class="primary-info">
+											<h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase"><span t-field="employee_id.name"/></h1>
+											<div class="title mb-3"><span t-field="employee_id.job_id"/></div>
+											<ul class="list-unstyled">
+												<li class="mb-2"><a href="javascript:void(0)"><i class="far fa-envelope fa-fw mr-2" data-fa-transform="grow-3"></i><span t-field="employee_id.work_email"/></a></li>
+												<li><a href="javascript:void(0)"><i class="fas fa-mobile-alt fa-fw mr-2" data-fa-transform="grow-6"></i><span t-field="employee_id.mobile_phone"/></a></li>
+											</ul>
 										</div>
+										<div class="secondary-info ml-md-auto mt-2">
+											<ul class="resume-social list-unstyled" t-foreach="employee_id.social_ids" t-as="social">
+												<li class="mb-3"><a target="_blank" t-attf-href="{{social.link}}"><span class="fa-container text-center mr-2"><i t-attf-class="mt-1 fab fa-{{social.name}} fa-fw"></i></span><span t-field="social.link"/></a></li>
+											</ul>
+										</div>
+										
+									</div>
+								</div>
+							</header>
+							<div class="resume-body p-5">
+								<section class="resume-section summary-section mb-5">
+									<h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">About Me</h2>
+									<div class="resume-section-content">
+										<p class="mb-0">
+											<span t-raw="employee_id.profile"/>
+										</p>
+									</div>
+								</section>
+								<div class="row">
+									<div class="col-lg-9">
+										<section class="resume-section experience-section mb-5">
+											<h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Work Experience</h2>
+											<div class="resume-section-content">
+												<div class="resume-timeline position-relative">
+													<article class="resume-timeline-item position-relative pb-5">
+														<div class="resume-timeline-item-header mb-2">
+															<div class="d-flex flex-column flex-md-row">
+																<h3 class="resume-position-title font-weight-bold mb-1">Lead Developer</h3>
+																<div class="resume-company-name ml-auto">Startup Hub</div>
+															</div>
+															<div class="resume-position-time">2018 - Present</div>
+														</div>
+														<div class="resume-timeline-item-desc">
+															<p>Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Donec pede justo, fringilla vel.</p>
+															<h4 class="resume-timeline-item-desc-heading font-weight-bold">Achievements:</h4>
+															<p>Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+															<ul>
+																<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+																<li>At vero eos et accusamus et iusto odio dignissimos.</li>
+																<li>Blanditiis praesentium voluptatum deleniti atque corrupti.</li>
+																<li>Maecenas tempus tellus eget.</li>
+															</ul>
+															<h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
+															<ul class="list-inline">
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">Angular</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">Python</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">jQuery</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">Webpack</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">HTML/SASS</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">PostgresSQL</span></li>
+															</ul>
+														</div>
+													</article>
+													
+													<article class="resume-timeline-item position-relative pb-5">
+														<div class="resume-timeline-item-header mb-2">
+															<div class="d-flex flex-column flex-md-row">
+																<h3 class="resume-position-title font-weight-bold mb-1">Senior Software Developer</h3>
+																<div class="resume-company-name ml-auto">Google</div>
+															</div>
+															<div class="resume-position-time">2014 - 2018</div>
+														</div>
+														<div class="resume-timeline-item-desc">
+															<p>Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Donec pede justo, fringilla vel.</p>
+															<h4 class="resume-timeline-item-desc-heading font-weight-bold">Achievements</h4>
+															<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+															<h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
+															<ul class="list-inline">
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">React</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">Redux</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">Django</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">Webpack</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">HTML/SASS</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">MySQL</span></li>
+															</ul>
+														</div>
+													</article>
+													
+													<article class="resume-timeline-item position-relative pb-5">
+														<div class="resume-timeline-item-header mb-2">
+															<div class="d-flex flex-column flex-md-row">
+																<h3 class="resume-position-title font-weight-bold mb-1">Co-Founder &amp; Lead Developer</h3>
+																<div class="resume-company-name ml-auto">To-do Lists</div>
+															</div>
+															<div class="resume-position-time">2012 - 2014</div>
+														</div>
+														<div class="resume-timeline-item-desc">
+															<p>Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
+															<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+															<h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
+															<ul class="list-inline">
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">Django</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">JavaScript</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">Node.js</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">Require.js</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">HTML/SASS</span></li>
+															</ul>
+														</div>
+													</article>
+													
+													<article class="resume-timeline-item position-relative">
+														<div class="resume-timeline-item-header mb-2">
+															<div class="d-flex flex-column flex-md-row">
+																<h3 class="resume-position-title font-weight-bold mb-1">Web Developer <small class="text-muted">(Intern)</small></h3>
+																<div class="resume-company-name ml-auto">Amazon</div>
+															</div>
+															<div class="resume-position-time">2011 - 2012</div>
+														</div>
+														<div class="resume-timeline-item-desc">
+															<p>Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum.</p>
+															<h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
+															<ul class="list-inline">
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">Ruby on Rails</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">jQuery</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">HTML/LESS</span></li>
+																<li class="list-inline-item"><span class="badge badge-primary badge-pill">MongoDB</span></li>
+															</ul>
+														</div>
+													</article>
+												</div>
+											</div>
+										</section>
+									</div>
+
+									<div class="col-lg-3">
+										<section class="resume-section skills-section mb-5">
+											<h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Skills &amp; Tools</h2>
+											<div class="resume-section-content">
+												<div class="resume-skill-item">
+													<ul class="list-unstyled mb-4" t-foreach="employee_id.skills_ids" t-as="skill">
+														<li class="mb-2">
+															<div class="resume-skill-name"><span t-field="skill.name"/></div>
+															<div class="progress resume-progress">
+																<div class="progress-bar theme-progress-bar-dark" role="progressbar" t-attf-style="width: {{skill.score}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</section>
+										<section class="resume-section education-section mb-5">
+											<h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Work Experience</h2>
+											<div class="resume-section-content">
+												<ul class="list-unstyled">
+													<li class="mb-2" t-foreach="employee_id.experience_ids" t-as="experience">
+														<div class="resume-degree font-weight-bold"><span t-field="experience.name"/></div>
+														<div class="resume-degree-org"><span t-field="experience.description"/></div>
+														<div class="resume-degree-time"><span t-field="experience.year"/></div>
+													</li>
+												</ul>
+											</div>
+										</section>
+										
 									</div>
 								</div>
 							</div>
-
-							<!-- Work -->
-							<div class="card">
-								<div class="card-block">
-							   	<h2 class="text-center text-warning">Work</h2>
-							   		<div class="work-experience" t-foreach="employee_id.experience_ids" t-as="experience">
-							     		<small class="date"><span t-field="experience.year" /></small>
-							     		<h3 class="h5 date-title"><span t-field="experience.name" /></h3>
-							     		<p><span t-field="experience.description" /></p>
-							   		</div>
-								</div>
-							</div>
-						       
-							<!-- Skills -->
-							<div class="card">
-								<div class="card-block">
-								<h2 class="text-center text-warning">Skills</h2>
-								   <div class="row">
-								    	<div class="col-md-4" t-foreach="employee_id.skills_ids" t-as="skill">
-								        	<label><span t-field="skill.name"/></label>
-									        <div class="meter" style="width: 300px;">
-								       			<span t-attf-style="width: {{skill.score}}%;"></span>
-								       		</div><br/>
-								    	</div>
-								   </div>
-								</div>
-							</div>
-
-					       <!-- Contact -->
-					       <div class="card">
-					         <div class="card-block">
-					           <h2 class="text-center text-warning">Contact</h2>
-					           <form action="" class="reveal-content">
-					             <div class="form-group">
-					               <input type="email" class="form-control" id="email" placeholder="Email" />
-					             </div>
-					             <div class="form-group">
-					               <input type="text" class="form-control" id="subject" placeholder="Subject" />
-					             </div>
-					             <div class="form-group">
-					               <textarea style="resize: vertical" class="form-control" rows="5" placeholder="Enter your message"></textarea>
-					             </div>
-					             <div class="form-group">
-					               <button type="submit" class=" btn btn-primary">Send message</button>
-					             </div> 
-					           </form>
-					         </div>
-					       </div>
-						      
-						   </div>
-						  </div>
 						</div>
-					</main>
+					</article>  
+
+					<footer class="footer text-center pt-2 pb-5">
+						<small class="copyright">Arman Nur Hidayat <i class="fas fa-heart"></i> <a href="https://vitraining.com" target="_blank">Vitraining.com</a></small>
+					</footer>
 
 				</body>
 			</html>
-		</template>
-
-
-		<template id="not_found">
-			<h1>ERROR NOT FOUND</h1>
 		</template>
 
 	</data>

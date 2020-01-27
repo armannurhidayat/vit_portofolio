@@ -4,9 +4,6 @@ from odoo.http import request
 
 class VitPortofolio(http.Controller):
 
-	# <model("hr.employee"):employee_id> = parameter id employee
-	# @http.route("/portofolio/<model('hr.employee'):employee_id>", auth='public')
-
 	# Public Home
 	@http.route("/home", auth='public')
 	def home(self, **kw):

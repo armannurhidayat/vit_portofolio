@@ -27,6 +27,7 @@
         'views/views.xml',
         'views/home.xml',
         'views/templates.xml',
+        'views/error.xml',
         'data/group.xml',
         'security/ir.model.access.csv',
     ],

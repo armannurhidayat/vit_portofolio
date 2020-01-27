@@ -39,7 +39,7 @@ class PortofolioExperience(models.Model):
 class PortofolioSocial(models.Model):
 	_name = 'portofolio.social'
 
-	name = fields.Char(string='Nama', required=True)
+	name = fields.Char(string='Social Media', required=True)
 	link = fields.Char(string='Link', required=True)
 	social_id = fields.Many2one(comodel_name="hr.employee", string='Nama')
 
