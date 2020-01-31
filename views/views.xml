@@ -68,6 +68,9 @@
                         <group>
                             <field name="name"/>
                             <field name="link"/>
+                        </group>
+                        <group>
+                            <field name="technology_ids" widget="many2many_tags"/>
                             <field name="image" widget="image" class="oe_avatar"/>
                         </group>
                     </group>

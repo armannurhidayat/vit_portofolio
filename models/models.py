@@ -18,6 +18,7 @@ class PortofolioWorks(models.Model):
 	image = fields.Binary(string='Gambar')
 	link = fields.Char(string='Link', required=True)
 	description = fields.Text(string='Description')
+	technology_ids = fields.Many2many('portofolio.skills', string='Technology')
 	works_id = fields.Many2one(comodel_name="hr.employee", string='Nama')
 
 
