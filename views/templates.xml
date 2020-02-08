@@ -76,9 +76,10 @@
 																<img style="width: 50%;" t-attf-src="data:image/*;base64,{{work.image}}" class="img-thumbnail" />
 															</a>
 														</div>
+														<br/>
 														<div class="resume-timeline-item-desc">
 															<p><span t-field="work.description"/></p>
-															<h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
+															<h4 t-if="work.technology_ids" class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
 
 															<ul class="list-inline">
 																<li class="list-inline-item"><span class="badge badge-primary badge-pill" t-foreach="work.technology_ids" t-as="tec"><span t-field="tec.name"/></span></li>
