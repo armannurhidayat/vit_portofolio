@@ -7,7 +7,7 @@ class VitPortofolio(http.Controller):
 	# Public Home
 	@http.route("/home", auth='public')
 	def home(self, **kw):
-		employee = request.env['hr.employee'].sudo().search([('id', '!=', None)], limit=6)
+		employee = request.env['hr.employee'].sudo().search([('id', '!=', None)], limit=6) # limit = jumlah data yang di keluarkan
 
 		return request.render("vit_portofolio.home", {
 			'employees'	: employee,
